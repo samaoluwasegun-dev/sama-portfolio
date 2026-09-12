@@ -1,0 +1,1136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sama Oluwasegun | Full Stack Developer</title>
+
+    <meta name="description"
+        content="Sama Oluwasegun is a Full Stack Developer specializing in web development, UI/UX design, e-commerce systems, and custom software solutions.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        /* ===============================
+           GLOBAL SETTINGS
+        ================================ */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --primary: #00d4ff;
+            --secondary: #7c3aed;
+            --dark: #050816;
+            --card: rgba(255, 255, 255, 0.08);
+            --text: #ffffff;
+            --gray: #a5b4fc;
+        }
+
+        body {
+            font-family: "Poppins", sans-serif;
+            background: var(--dark);
+            color: var(--text);
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: white;
+        }
+
+        img {
+            width: 100%;
+            display: block;
+        }
+
+        /* ===============================
+           NAVBAR
+        ================================ */
+        header {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 8%;
+            background: rgba(5, 8, 22, .75);
+            backdrop-filter: blur(15px);
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 800;
+        }
+
+        .logo span {
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 35px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            transition: .3s;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--primary);
+        }
+
+        .menu-btn {
+            display: none;
+            background: none;
+            color: white;
+            border: none;
+            font-size: 25px;
+            cursor: pointer;
+        }
+
+        /* ===============================
+           HERO SECTION
+        ================================ */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 120px 8% 60px;
+            background:
+                radial-gradient(circle at top right, #1d4ed8, transparent 35%),
+                radial-gradient(circle at bottom left, #7c3aed, transparent 35%);
+        }
+
+        .hero-content {
+            width: 55%;
+        }
+
+        .hero-content h4 {
+            color: var(--primary);
+            font-size: 22px;
+        }
+
+        .hero-content h1 {
+            font-size: 65px;
+            margin: 15px 0;
+        }
+
+        .hero-content h2 {
+            font-size: 30px;
+            color: #c7d2fe;
+            min-height: 40px;
+        }
+
+        .hero-content p {
+            margin: 25px 0;
+            line-height: 1.8;
+            color: #cbd5e1;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .btn,
+        .btn-outline {
+            padding: 14px 35px;
+            border-radius: 50px;
+            transition: .4s;
+            display: inline-block;
+        }
+
+        .btn {
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+        }
+
+        .btn-outline {
+            border: 1px solid var(--primary);
+        }
+
+        .btn:hover,
+        .btn-outline:hover {
+            transform: translateY(-5px);
+        }
+
+        /* ===============================
+           PROFILE PICTURE (ROUND + GLOW)
+        ================================ */
+        .hero-image {
+            width: 35%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .profile-wrapper {
+            position: relative;
+            width: 340px;
+            height: 340px;
+            border-radius: 50%;
+            animation: floating 4s ease-in-out infinite;
+        }
+
+        .profile-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center 2%;   /* This moves the focus upward to show your head */
+        border-radius: 50%;
+        border: 5px solid var(--primary);
+        box-shadow: 0 0 25px rgba(0, 212, 255, 0.4);
+        position: relative;
+        z-index: 2;
+       }
+
+        .profile-glow {
+            position: absolute;
+            top: -12px;
+            left: -12px;
+            width: calc(100% + 24px);
+            height: calc(100% + 24px);
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            opacity: 0.35;
+            z-index: 1;
+            filter: blur(18px);
+            animation: pulse-glow 3s ease-in-out infinite;
+        }
+
+        @keyframes floating {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-18px);
+            }
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% {
+                opacity: 0.3;
+                transform: scale(1);
+            }
+            50% {
+                opacity: 0.5;
+                transform: scale(1.05);
+            }
+        }
+
+        /* ===============================
+           GENERAL SECTIONS
+        ================================ */
+        section {
+            padding: 100px 8%;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: 1s;
+        }
+
+        section.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 45px;
+        }
+
+        .section-title p {
+            color: #cbd5e1;
+            margin-top: 10px;
+        }
+
+        /* ===============================
+           ABOUT
+        ================================ */
+        .about-container {
+            display: flex;
+            justify-content: center;
+        }
+
+        .about-text {
+            max-width: 800px;
+        }
+
+        .about-text p {
+            line-height: 2;
+            color: #cbd5e1;
+        }
+
+        .about-info {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .about-info div {
+            background: var(--card);
+            padding: 25px;
+            border-radius: 20px;
+            text-align: center;
+            flex: 1;
+            min-width: 140px;
+        }
+
+        .about-info h3 {
+            color: var(--primary);
+            font-size: 35px;
+        }
+
+        /* ===============================
+           TECH STACK
+        ================================ */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .skill-category {
+            background: var(--card);
+            padding: 30px;
+            border-radius: 20px;
+            backdrop-filter: blur(15px);
+        }
+
+        .skill-category h3 {
+            color: var(--primary);
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .skill-tags span {
+            background: rgba(0, 212, 255, 0.12);
+            color: var(--primary);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            border: 1px solid rgba(0, 212, 255, 0.25);
+        }
+
+        /* ===============================
+           SERVICES
+        ================================ */
+        .services {
+            background: #070b1f;
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .service-card {
+            padding: 35px;
+            background: var(--card);
+            border-radius: 25px;
+            backdrop-filter: blur(15px);
+            transition: .4s;
+        }
+
+        .service-card i {
+            font-size: 40px;
+            color: var(--primary);
+        }
+
+        .service-card h3 {
+            margin: 20px 0;
+        }
+
+        .service-card p {
+            color: #cbd5e1;
+            line-height: 1.7;
+        }
+
+        .service-card:hover {
+            transform: translateY(-15px);
+        }
+
+        /* ===============================
+           PROJECTS
+        ================================ */
+        .project-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+        }
+
+        .project-card {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            background: var(--card);
+            border-radius: 25px;
+            overflow: hidden;
+            transition: .4s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .project-card img {
+            height: 100%;
+            min-height: 280px;
+            object-fit: cover;
+        }
+
+        .project-info {
+            padding: 35px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .project-info h3 {
+            font-size: 1.7rem;
+            margin-bottom: 12px;
+        }
+
+        .project-info > p {
+            color: #cbd5e1;
+            line-height: 1.7;
+            margin-bottom: 18px;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 18px;
+        }
+
+        .project-tech span {
+            background: rgba(0, 212, 255, 0.12);
+            color: var(--primary);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            border: 1px solid rgba(0, 212, 255, 0.25);
+        }
+
+        .project-features {
+            margin-bottom: 25px;
+        }
+
+        .project-features li {
+            color: #cbd5e1;
+            margin-bottom: 8px;
+            list-style: none;
+        }
+
+        .project-features i {
+            color: var(--primary);
+            margin-right: 10px;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .project-links .btn,
+        .project-links .btn-outline {
+            padding: 10px 22px;
+            font-size: 0.95rem;
+        }
+
+        /* ===============================
+           TIMELINE
+        ================================ */
+        .timeline div {
+            padding: 30px;
+            margin: 20px auto;
+            max-width: 700px;
+            background: var(--card);
+            border-left: 4px solid var(--primary);
+            border-radius: 15px;
+        }
+
+        .timeline p {
+            color: #cbd5e1;
+        }
+
+        /* ===============================
+           TESTIMONIAL
+        ================================ */
+        .testimonial-card {
+            max-width: 700px;
+            margin: auto;
+            padding: 40px;
+            background: var(--card);
+            border-radius: 25px;
+            text-align: center;
+        }
+
+        /* ===============================
+           PRICING
+        ================================ */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .price-card {
+            padding: 40px;
+            text-align: center;
+            background: var(--card);
+            border-radius: 25px;
+        }
+
+        .price-card h2 {
+            color: var(--primary);
+            margin: 20px;
+        }
+
+        /* ===============================
+           CONTACT
+        ================================ */
+        .contact-text {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto 40px;
+            color: #cbd5e1;
+            font-size: 1.1rem;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: white;
+            font-size: 1.1rem;
+            transition: .3s;
+        }
+
+        .contact-item:hover {
+            color: var(--primary);
+        }
+
+        .contact-item i {
+            font-size: 1.6rem;
+            color: var(--primary);
+        }
+
+        /* ===============================
+           FOOTER
+        ================================ */
+        footer {
+            text-align: center;
+            padding: 30px;
+            background: #020617;
+            color: #94a3b8;
+        }
+
+        /* ===============================
+           MOBILE DESIGN
+        ================================ */
+        @media (max-width: 900px) {
+            .nav-links {
+                display: none;
+            }
+
+            .nav-links.active {
+                display: flex;
+                position: absolute;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                flex-direction: column;
+                text-align: center;
+                background: #050816;
+                padding: 30px;
+            }
+
+            .menu-btn {
+                display: block;
+            }
+
+            .hero {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero-content,
+            .hero-image {
+                width: 100%;
+            }
+
+            .hero-content h1 {
+                font-size: 42px;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .profile-wrapper {
+                width: 260px;
+                height: 260px;
+                margin: 30px auto 0;
+            }
+
+            .service-grid,
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .project-card {
+                grid-template-columns: 1fr;
+            }
+
+            .about-info {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ================= NAVBAR ================= -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <span>S</span>AMA O.
+            </div>
+
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+
+            <button class="menu-btn">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </nav>
+    </header>
+
+    <!-- ================= HERO SECTION ================= -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h4>Hello, I'm</h4>
+            <h1>Sama Oluwasegun.D</h1>
+            <h2>Full Stack Developer & Digital Product Builder</h2>
+            <p>
+                I design and develop modern digital solutions,
+                scalable web applications, and business-focused
+                software systems that help companies grow online.
+            </p>
+
+            <div class="hero-buttons">
+                <a href="#projects" class="btn">View My Work</a>
+                <a href="#contact" class="btn-outline">Hire Me</a>
+                <a href="img/samacv.jpg" class="btn-outline" target="_blank">Download CV</a>
+            </div>
+        </div>
+
+        <div class="hero-image">
+            <div class="profile-wrapper">
+                <img src="img/port2.jpeg" alt="Sama Oluwasegun - Full Stack Developer" class="profile-img">
+                <div class="profile-glow"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= ABOUT SECTION ================= -->
+    <section class="about" id="about">
+        <div class="section-title">
+            <h2>About Me</h2>
+            <p>Building professional software solutions with creativity and technology.</p>
+        </div>
+
+        <div class="about-container">
+            <div class="about-text">
+                <p>
+                    I'm a Full Stack Developer with 4 years of experience passionate about creating
+                    beautiful, responsive, and functional digital products.
+                    I specialize in frontend development, backend systems,
+                    database solutions, UI/UX design, and custom web applications.
+                    My goal is to transform ideas into reliable software
+                    that solves real-world business problems.
+                </p>
+
+                <div class="about-info">
+                    <div>
+                        <h3 data-target="4">0</h3>
+                        <p>Years Experience</p>
+                    </div>
+                    <div>
+                        <h3 data-target="20">0</h3>
+                        <p>Projects Built</p>
+                    </div>
+                    <div>
+                        <h3 data-target="10">0</h3>
+                        <p>Technologies</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= TECH STACK ================= -->
+    <section class="skills" id="skills">
+        <div class="section-title">
+            <h2>My Tech Stack</h2>
+            <p>Technologies I use to build modern web and mobile applications.</p>
+        </div>
+
+        <div class="skills-grid">
+            <div class="skill-category">
+                <h3>Frontend</h3>
+                <div class="skill-tags">
+                    <span>HTML</span>
+                    <span>CSS</span>
+                    <span>JavaScript</span>
+                    <span>React.js</span>
+                    <span>TypeScript</span>
+                    <span>Ionic-React</span>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h3>Backend</h3>
+                <div class="skill-tags">
+                    <span>Node.js</span>
+                    <span>PHP</span>
+                    <span>RESTful APIs</span>
+                    <span>Express</span>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h3>Database & Tools</h3>
+                <div class="skill-tags">
+                    <span>MySQL</span>
+                    <span>Git & GitHub</span>
+                    <span>VS Code</span>
+                    <span>XAMPP</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= SERVICES ================= -->
+    <section class="services" id="services">
+        <div class="section-title">
+            <h2>My Services</h2>
+            <p>Professional digital solutions for businesses and individuals.</p>
+        </div>
+
+        <div class="service-grid">
+
+            <div class="service-card">
+                <i class="fa-solid fa-code"></i>
+                <h3>Website Development</h3>
+                <p>Responsive and high-performance websites built with modern technologies.</p>
+            </div>
+
+            <div class="service-card">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <h3>E-commerce Development</h3>
+                <p>Online stores with payment systems, product management, and dashboards.</p>
+            </div>
+
+            <div class="service-card">
+                <i class="fa-solid fa-layer-group"></i>
+                <h3>UI/UX Design</h3>
+                <p>Creating beautiful interfaces focused on user experience.</p>
+            </div>
+
+            <div class="service-card">
+                <i class="fa-solid fa-mobile-screen-button"></i>
+                <h3>Mobile App Development</h3>
+                <p>Building cross-platform mobile applications using Ionic and React that look and feel native on both iOS and Android.</p>
+            </div>
+
+            <div class="service-card">
+                <i class="fa-solid fa-server"></i>
+                <h3>Backend & API Development</h3>
+                <p>Creating secure RESTful APIs with PHP and Node.js to connect frontends to databases, handling authentication, data processing, and file uploads.</p>
+            </div>
+
+            <div class="service-card">
+                <i class="fa-solid fa-database"></i>
+                <h3>Database Management</h3>
+                <p>Designing and managing relational databases with MySQL, ensuring data is structured, secure, and efficiently queried.</p>
+            </div>
+
+            <div class="service-card">
+                <i class="fa-solid fa-box"></i>
+                <h3>Product Management System</h3>
+                <p>Custom systems for managing products, inventory, pricing, and reports.</p>
+            </div>
+
+            <div class="service-card">
+                <i class="fa-solid fa-rocket"></i>
+                <h3>Website Optimization</h3>
+                <p>Improving speed, security, and performance.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ================= PROJECTS ================= -->
+    <section class="projects" id="projects">
+        <div class="section-title">
+            <h2>Featured Projects</h2>
+            <p>Some of the projects I’ve built using modern technologies.</p>
+        </div>
+
+        <div class="project-grid">
+
+            <!-- Project 1 -->
+            <div class="project-card">
+                <img src="img/port27.jpg" alt="Sales Management System">
+                <div class="project-info">
+                    <h3>Sales Management System</h3>
+                    <p>
+                        A full-stack application that helps businesses manage inventory, 
+                        track sales, and handle user accounts. Features secure authentication, 
+                        a clean dashboard, and complete CRUD operations.
+                    </p>
+                    <div class="project-tech">
+                        <span>React</span>
+                        <span>Node.js</span>
+                        <span>MySQL</span>
+                        <span>PHP</span>
+                        <span>REST API</span>
+                    </div>
+                    <div class="project-features">
+                        <ul>
+                            <li><i class="fas fa-check"></i> Secure User Authentication</li>
+                            <li><i class="fas fa-check"></i> Product CRUD with Image Upload</li>
+                            <li><i class="fas fa-check"></i> Sales Dashboard & Reports</li>
+                            <li><i class="fas fa-check"></i> Real-time Inventory Tracking</li>
+                        </ul>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/yourusername/sales-management" target="_blank" class="btn">
+                            <i class="fab fa-github"></i> View Code
+                        </a>
+                        <a href="#" target="_blank" class="btn-outline">
+                            <i class="fas fa-external-link-alt"></i> Live Demo
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 2 -->
+            <div class="project-card">
+                <img src="img/port29.jpg" alt="Business Website">
+                <div class="project-info">
+                    <h3>Business Website</h3>
+                    <p>
+                        A modern, fully responsive website designed for company branding 
+                        and lead generation. Clean design with smooth animations and 
+                        optimized performance.
+                    </p>
+                    <div class="project-tech">
+                        <span>HTML5</span>
+                        <span>CSS3</span>
+                        <span>JavaScript</span>
+                        <span>Responsive Design</span>
+                    </div>
+                    <div class="project-features">
+                        <ul>
+                            <li><i class="fas fa-check"></i> Fully Responsive Layout</li>
+                            <li><i class="fas fa-check"></i> Modern UI/UX Design</li>
+                            <li><i class="fas fa-check"></i> Fast Loading Performance</li>
+                            <li><i class="fas fa-check"></i> Contact & Call-to-Action Sections</li>
+                        </ul>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/yourusername/business-website" target="_blank" class="btn">
+                            <i class="fab fa-github"></i> View Code
+                        </a>
+                        <a href="#" target="_blank" class="btn-outline">
+                            <i class="fas fa-external-link-alt"></i> Live Demo
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 3 -->
+            <div class="project-card">
+                <img src="img/port20.jpg" alt="Custom Web Application">
+                <div class="project-info">
+                    <h3>Custom Web Application</h3>
+                    <p>
+                        A scalable web application built to solve real business challenges. 
+                        Includes authentication, dashboard, and database-driven features.
+                    </p>
+                    <div class="project-tech">
+                        <span>React</span>
+                        <span>TypeScript</span>
+                        <span>Node.js</span>
+                        <span>MySQL</span>
+                    </div>
+                    <div class="project-features">
+                        <ul>
+                            <li><i class="fas fa-check"></i> User Authentication System</li>
+                            <li><i class="fas fa-check"></i> Admin Dashboard</li>
+                            <li><i class="fas fa-check"></i> Database Integration</li>
+                            <li><i class="fas fa-check"></i> Clean & Maintainable Code</li>
+                        </ul>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/yourusername/custom-web-app" target="_blank" class="btn">
+                            <i class="fab fa-github"></i> View Code
+                        </a>
+                        <a href="#" target="_blank" class="btn-outline">
+                            <i class="fas fa-external-link-alt"></i> Live Demo
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ================= EXPERIENCE ================= -->
+    <section class="experience" id="experience">
+        <div class="section-title">
+            <h2>My Journey</h2>
+        </div>
+
+        <div class="timeline">
+            <div>
+                <h3>Learning & Development</h3>
+                <p>Building strong foundations in programming and software development.</p>
+            </div>
+            <div>
+                <h3>Full Stack Projects</h3>
+                <p>Developing websites, dashboards and business applications.</p>
+            </div>
+            <div>
+                <h3>Professional Growth</h3>
+                <p>Creating digital products for clients and organizations.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= TESTIMONIAL ================= -->
+    <section class="testimonials">
+        <div class="section-title">
+            <h2>Client Feedback</h2>
+        </div>
+
+        <div class="testimonial-card">
+            <p>"Professional approach, clean design and excellent communication."</p>
+            <h3>Happy Client</h3>
+        </div>
+    </section>
+
+    <!-- ================= PRICING ================= -->
+    <section class="pricing">
+        <div class="section-title">
+            <h2>Service Packages</h2>
+        </div>
+
+        <div class="pricing-grid">
+            <div class="price-card">
+                <h3>Starter</h3>
+                <h2>$300+</h2>
+                <p>Landing pages and small business websites.</p>
+            </div>
+            <div class="price-card">
+                <h3>Professional</h3>
+                <h2>$800+</h2>
+                <p>Business websites and custom systems.</p>
+            </div>
+            <div class="price-card">
+                <h3>Enterprise</h3>
+                <h2>Custom</h2>
+                <p>Large applications and software solutions.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= CONTACT ================= -->
+    <section class="contact" id="contact">
+        <div class="section-title">
+            <h2>Let's Work Together</h2>
+        </div>
+
+        <p class="contact-text">
+            Currently open to remote opportunities and collaborations. 
+            Feel free to reach out — I’d love to build something great with you!
+        </p>
+
+        <div class="contact-links">
+            <a href="mailto:samaoluwasegun123@gmail.com"  class="contact-item">
+                <i class="fas fa-envelope"></i>
+                samaoluwasegun123@gmail.com
+            </a>
+            
+            <a href="https://wa.me/2347087477475" target="_blank" class="contact-item">
+              <i class="fab fa-whatsapp"></i>
+              WhatsApp
+            </a>
+
+            <a href="https://github.com/samaoluwasegun-dev" target="_blank" rel="noopener noreferrer" class="contact-item">
+            <i class="fab fa-github"></i>
+            GitHub
+            </a>
+
+            <a href="https://www.linkedin.com/in/sama-oluwasegun-075053427" target="_blank" rel="noopener noreferrer" class="contact-item">
+            <i class="fab fa-linkedin"></i>
+             LinkedIn
+           </a>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2026 Sama Oluwasegun. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        // Mobile Navigation
+        const menuBtn = document.querySelector(".menu-btn");
+        const navLinks = document.querySelector(".nav-links");
+
+        menuBtn.addEventListener("click", () => {
+            navLinks.classList.toggle("active");
+        });
+
+        document.querySelectorAll(".nav-links a").forEach(link => {
+            link.addEventListener("click", () => {
+                navLinks.classList.remove("active");
+            });
+        });
+
+        // Typing Effect
+        const text = [
+            "Full Stack Developer",
+            "UI/UX Designer",
+            "Software Solution Builder",
+            "Web Application Developer"
+        ];
+
+        let index = 0;
+        let charIndex = 0;
+        let deleting = false;
+        const typingElement = document.querySelector(".hero-content h2");
+
+        function typingEffect() {
+            let currentText = text[index];
+
+            if (!deleting) {
+                typingElement.textContent = currentText.substring(0, charIndex++);
+                if (charIndex > currentText.length) {
+                    deleting = true;
+                    setTimeout(typingEffect, 1200);
+                    return;
+                }
+            } else {
+                typingElement.textContent = currentText.substring(0, charIndex--);
+                if (charIndex === 0) {
+                    deleting = false;
+                    index = (index + 1) % text.length;
+                }
+            }
+            setTimeout(typingEffect, deleting ? 50 : 100);
+        }
+        typingEffect();
+
+        // Scroll Reveal
+        const sections = document.querySelectorAll("section");
+        const revealSection = () => {
+            sections.forEach(section => {
+                const position = section.getBoundingClientRect().top;
+                if (position < window.innerHeight - 100) {
+                    section.classList.add("show");
+                }
+            });
+        };
+        window.addEventListener("scroll", revealSection);
+        revealSection();
+
+        // Animated Counters
+        const counters = document.querySelectorAll(".about-info h3");
+        counters.forEach(counter => {
+            const updateCounter = () => {
+                const target = +counter.getAttribute("data-target");
+                const current = +counter.innerText;
+                const increment = target / 80;
+
+                if (current < target) {
+                    counter.innerText = Math.ceil(current + increment);
+                    setTimeout(updateCounter, 25);
+                } else {
+                    counter.innerText = target + "+";
+                }
+            };
+            updateCounter();
+        });
+
+        // Active Navigation
+        window.addEventListener("scroll", () => {
+            let current = "";
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 150;
+                if (scrollY >= sectionTop) {
+                    current = section.getAttribute("id");
+                }
+            });
+
+            document.querySelectorAll(".nav-links a").forEach(link => {
+                link.classList.remove("active");
+                if (link.getAttribute("href") === "#" + current) {
+                    link.classList.add("active");
+                }
+            });
+        });
+    </script>
+</body>
+</html>
